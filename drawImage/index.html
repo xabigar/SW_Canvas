@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Canvas. Ejemplos del método drawImage</title>
+  </head>
+  <body>
+    <canvas id="lienzo" width="800" height="500"></canvas>
+    <script>
+      var lienzo = document.getElementById("lienzo");
+      var context = lienzo.getContext("2d");
+      var logo = new Image();
+      logo.src = "player.png";
+
+      context.strokeRect(0, 0, 300, 100);
+      //cuando se carga la imagen, lo dibujaremos en e lienzo (no antes)
+      logo.onload = function () {
+        // 3 parametros (qué, dónde colocar)
+        context.drawImage(logo, 5, 5);
+
+        context.font = "20px Arial";
+        context.fillText("drawImage(logo, 5, 5);", 10, 150);
+
+        // 5 parametros (qué, cónde colocar, qué tamaño - resize -)
+        context.drawImage(logo, 5, 200, 300, 280);
+        context.fillStyle = "#FFFFFF";
+        context.fillRect(5, 425, 300, 60);
+        context.fillStyle = "#000000";
+        context.fillText("drawImage(logo, 5, 200, 300, 280);", 10, 450);
+
+        // 9 parametros (qué, dónde cortar (x,y,w,y), a dónde llevar (canvas x, y), qué tamaño - resize))
+        context.drawImage(logo, 0, 0, 28, 35, 425, 25, 56, 72);
+        context.fillText(
+          "drawImage(logo, 0, 0, 28, 35, 425, 25, 56, 72);",
+          350,
+          150
+        );
+      };
+    </script>
+  </body>
+</html>
