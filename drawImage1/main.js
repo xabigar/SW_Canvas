@@ -4,15 +4,17 @@ function cargar() {
     let canvas = document.getElementById('lienzo')
     let context = canvas.getContext('2d')
     let rejillaBtn = document.getElementById('dibujaRejilla')
+    let borrarBtn = document.getElementById('borrarBtn')
     dibujarLogo(context)
     rejillaBtn.addEventListener('click', () => pintarRejilla(canvas, context))
+    borrarBtn.addEventListener('click', () => borrar(canvas, context))
 }
 
 function dibujarLogo(context) {
     var logo = new Image () ; 
-    logo.src = "ehu.png"; 
+    logo.src = "chill.png"; 
     logo.onload = function() { 
-        context.drawImage(logo, 0, 0); 
+        context.drawImage(logo, 210, 140, 200, 200); 
     }; 
 
 }
@@ -33,3 +35,8 @@ function pintarRejilla(canvas, context){
     context.strokeStyle = "#918d8dff"; 
     context.stroke();
 }
+
+function borrar(canvas, context) { 
+    context.clearRect(0, 0, 300, 250); 
+}
+
