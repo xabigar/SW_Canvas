@@ -31,6 +31,7 @@ function dibujarArco(context) {
   context.beginPath();
   context.arc(100, 100, 50, 0, 1.5 * Math.PI, false);
   context.stroke();
+  context.fill();
 }
 
 function dibujarRectangulo(context) {
